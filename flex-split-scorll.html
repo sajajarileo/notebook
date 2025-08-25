@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex split scroll</title>
+  <link rel="icon" href="https://lh3.googleusercontent.com/pw/AP1GczPG_etOLYxP08IcrCm7HFSqSBTlMB2SIfQoz6NufxOjXjJMKFB7lng5M5ZI3-bdtbQvLLWgJQLQ7IkQjiID72BuWAuPDYiTsr9tnmqAifYdUGQSd6aXYFpIvOqs0VLDERSB7VlBNAdPsbQfRSTrLMs=w923-h923-s-no-gm?authuser=0">
+  <style>
+    * {margin: 0; padding: 0; font-size: 24px; font-weight: bold;}
+    form, form * {scrollbar-width: none;}
+    form::-webkit-scrollbar, form *::-webkit-scrollbar {display: none;}
+
+    form {
+      width: 80%;
+      height: 360px;
+      background-color: #eee;
+      border: 1px solid #000;
+      box-sizing: border-box;
+
+      display: flex;
+      flex-direction: column;
+
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+
+      overflow-y: scroll;
+    }
+
+    label {
+      flex-shrink: 0;
+      width: 40%;
+      height: 80%;
+      border-bottom: 1px solid #000;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div {
+      order: -1;
+      align-self: flex-end;
+      width: 60%; height: 0;
+      position: sticky; top: 0;
+    }
+
+    p {
+      width: 100%;
+      height: 360px;
+      padding: 12% 8% 0;
+      border-left: 1px solid #000;
+      box-sizing: border-box;
+
+      position: absolute;
+      left: 0; top: 0;
+      
+      overflow-y: scroll;
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      height: 116%;
+    }
+
+    i {
+      width: 100%; height: 100%; position: absolute; left: 0; top: 0;
+      display: flex; justify-content: center; align-items: center;
+    }
+
+    label:nth-of-type(1) b {color: red;}
+    label:nth-of-type(2) b {color: blue;}
+    label:nth-of-type(3) b {color: green;}
+
+    div:nth-of-type(2) span {background-color: red;}
+    div:nth-of-type(3) span {background-color: blue;}
+    div:nth-of-type(4) span {background-color: green;}
+
+    input[type='radio'] {display: none;}
+    :not(input:checked) + label + * {display: none;}
+  </style>
+</head>
+<body>
+  <form action="">
+    <div><p><i>DEFAULT</i></p></div>
+    
+    <input id="radio_red" type="radio" name="color">
+    <label for="radio_red"><b>RED</b></label>
+    <div><p><span></span></p></div>
+    <input id="radio_blue" type="radio" name="color">
+    <label for="radio_blue"><b>BLUE</b></label>
+    <div><p><span></span></p></div>
+    <input id="radio_green" type="radio" name="color">
+    <label for="radio_green"><b>GREEN</b></label>
+    <div><p><span></span></p></div>
+  </form>
+</body>
+</html>
