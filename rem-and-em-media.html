@@ -2,17 +2,17 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>rem and em 반응형</title>
   <style>
     * {margin: 0; padding: 0;}
 
-    html {font-size: 1em;}
+    html {font-size: 100%;}
 
-    @media (min-width: 600px) {html {font-size: 1.2em;}}
-    @media (min-width: 768px) {html {font-size: 1.4em;}}
-    @media (min-width: 1024px) {html {font-size: 1.6em;}}
-    @media (min-width: 1280px) {html {font-size: 1.8em;}}
+    @media (min-width: 600px) {html {font-size: 120%;}}
+    @media (min-width: 768px) {html {font-size: 140%;}}
+    @media (min-width: 1024px) {html {font-size: 160%;}}
+    @media (min-width: 1280px) {html {font-size: 180%;}}
 
     body {
       height: 100vh;
@@ -44,13 +44,18 @@
     사용자 설정 크기를 16px에서 20px로 변경할 경우,
     20px * 6.25% = 1.25px, 1px => 1.25px
     => 사용자 설정 크기 증감이 미미함
+    (혹은 차이가 과도하게 커지는 경우가 생길 수 있을거라 예상.
+    html fz를 드라마틱하게 바꾸진 말자. 많아봐야 1.4배 정도겠지만)
     3. html 태그의 fz를 1em 혹은 100%로 설정하는 경우,
     반응형에서 계산하기 쉬운 장점이 있음
     ex) 1.2em => 1.2배
 
     반응형에서 em을 사용하는 경우 body태그에 fz를 주어 이 문제에서 자유로우나,
     중첩된 요소가 많으면 관리하기 어려워 협업하기엔 rem 방법이 더 쉬울 듯
-    중첩 될 만한 p 태그 span 태그는 body에서 fz 지정없이 그대로 상속받는 듯
+    스킨같은거 쓰는 곳이면 예상치 못한 곳에서 fz가 지정되어 있다던가? 잘은 모르지만
+
+    문자 태그는 중첩 될 상황이 거의 없지만,
+    그나마 있는 p 태그는 body 태그 fz를 그대로 상속받는게 안전한 듯
     em 방법의 경우 button 태그 fz: inherit; 권장
 
     개인적으로 em은 5단위, px은 4단위 선호 (.25em = 4px)
