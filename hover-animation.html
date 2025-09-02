@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hover animation</title>
+  <link rel="icon" href="https://lh3.googleusercontent.com/pw/AP1GczPG_etOLYxP08IcrCm7HFSqSBTlMB2SIfQoz6NufxOjXjJMKFB7lng5M5ZI3-bdtbQvLLWgJQLQ7IkQjiID72BuWAuPDYiTsr9tnmqAifYdUGQSd6aXYFpIvOqs0VLDERSB7VlBNAdPsbQfRSTrLMs=w923-h923-s-no-gm?authuser=0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    ul {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      
+      width: 40%; min-width: 480px;
+      padding: 1em;
+      border: 1px solid #000;
+      box-sizing: border-box;
+
+      display: grid; gap: 1em;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    li {
+      width: 100%; aspect-ratio: 1 / 1;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      background-color: deepskyblue;
+
+      animation: hue-rotate 1.6s infinite paused;
+    }
+
+    li:hover {
+      animation-play-state: running;
+    }
+
+    @keyframes hue-rotate {
+      from {filter: hue-rotate(0);}
+      50% {filter: hue-rotate(180deg);}
+      to {filter: hue-rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+</html>
