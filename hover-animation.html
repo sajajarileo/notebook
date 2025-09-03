@@ -32,7 +32,10 @@
       box-sizing: border-box;
       background-color: deepskyblue;
 
-      animation: hue-rotate 1.6s infinite paused;
+      animation: hue-rotate 1.6s linear infinite paused;
+
+      display: grid; place-items: center;
+      /* 단일 자녀요소 중앙 정렬시 grid가 편하네 */
     }
 
     li:hover {
@@ -44,19 +47,44 @@
       50% {filter: hue-rotate(180deg);}
       to {filter: hue-rotate(360deg);}
     }
+
+    i {
+      display: block;
+      width: 80px; height: 80px;
+      border: 12px solid #fffc;
+      border-right: 12px solid;
+      border-radius: 50%;
+      box-sizing: border-box;
+      color: orange;
+
+      animation: rotate 2.4s infinite;
+    }
+
+    @keyframes rotate {
+      from {transform: rotate(0);}
+      to {transform: rotate(360deg);}
+    }
   </style>
 </head>
 <body>
   <ul>
+    <li><i></i></li>
+    <li><i></i></li>
+    <li><i></i></li>
+    <li><i></i></li>
+    <li><i></i></li>
+    <li><i></i></li>
+    <li><i></i></li>
+    <li><i></i></li>
+    <li><i></i></li>
+    <!-- <li></li>
     <li></li>
     <li></li>
     <li></li>
     <li></li>
     <li></li>
     <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li></li> -->
   </ul>
 </body>
 </html>
